@@ -1,8 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="card p-4 shadow">
-    <h1>🚀 DevOps CI/CD Pipeline</h1>
+
+<div class="text-center text-white mb-5">
+    <h1 class="display-4 fw-bold">End-to-End DevOps CI/CD Pipeline</h1>
+    <p class="lead">Automated Build • Containerized Deployment • Cloud Hosting • Real-Time Monitoring</p>
+</div>
+
+<div class="row text-white">
+    <div class="col-md-4">
+        <div class="card p-4 shadow">
+            <h4>⚙ CI/CD Automation</h4>
+            <p>Code pushed to GitHub triggers Jenkins pipeline automatically.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 shadow">
+            <h4>🐳 Docker Deployment</h4>
+            <p>Application packaged as a container and deployed to AWS EC2.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 shadow">
+            <h4>📊 Monitoring</h4>
+            <p>Prometheus collects metrics and Grafana visualizes them.</p>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-5 p-4 shadow text-white">
+    <h3>🔎 Deployment Details</h3>
     <p><strong>Container Host:</strong> {{ hostname }}</p>
     <p><strong>Current Time:</strong> {{ time }}</p>
+    <p>This project demonstrates a real-world DevOps workflow with full automation.</p>
 </div>
+
 {% endblock %}
