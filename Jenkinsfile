@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/yourusername/yourrepo.git'
+                git 'https://github.com/selva-bharathi6603/Capstone_Project.git'
             }
         }
 
