@@ -1,9 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="card p-4 shadow">
-    <h2>📊 Live Server Monitoring</h2>
-    <p><strong>CPU Usage:</strong> {{ cpu }}%</p>
-    <p><strong>Memory Usage:</strong> {{ memory }}%</p>
-    <p>This data is fetched directly from the running Docker container.</p>
+
+<h2 class="text-white mb-4">Live Server Monitoring</h2>
+
+<div class="card p-4 shadow text-white">
+
+    <h5>CPU Usage</h5>
+    <div class="progress mb-4">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ cpu }}%;">
+            {{ cpu }}%
+        </div>
+    </div>
+
+    <h5>Memory Usage</h5>
+    <div class="progress mb-4">
+        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ memory }}%;">
+            {{ memory }}%
+        </div>
+    </div>
+
+    <p>This data is fetched dynamically using Python's psutil module from inside the container.</p>
+
 </div>
+
 {% endblock %}
