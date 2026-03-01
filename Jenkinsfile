@@ -2,41 +2,48 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "selva6603/python-devops-app"
+        DOCKER_IMAGE = "selva6603/capestone-project"
     }
 
     stages {
 
-        stage('Clone') {
+        stage('Clone Code') {
             steps {
-                git 'https://github.com/selva-bharathi6603/Capstone_Project.git'
+                git branch: 'main',
+                url: 'https://github.com/selva-bharathi6603/Capstone_Project'
             }
         }
 
-        stage('Build Image') {
+        stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
 
+        stage('Login to DockerHub Using Token') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-token',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_TOKEN'
+                )]) {
+                    sh 'echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin'
+                }
+            }
+        }
+
         stage('Push Image') {
             steps {
-                withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'PASS')]) {
-                    sh 'echo $PASS | docker login -u yourdockerhubusername --password-stdin'
-                }
                 sh 'docker push $DOCKER_IMAGE'
             }
         }
 
-        stage('Deploy') {
+        stage('Run Container') {
             steps {
                 sh '''
-                ssh ubuntu@<app-server-ip> "
-                docker pull $DOCKER_IMAGE &&
-                docker stop python-app || true &&
-                docker rm python-app || true &&
-                docker run -d -p 5000:5000 --name python-app $DOCKER_IMAGE
-                "
+                docker stop capestone-container || true
+                docker rm capestone-container || true
+                docker run -d -p 5000:5000 --name capestone-container $DOCKER_IMAGE
                 '''
             }
         }
