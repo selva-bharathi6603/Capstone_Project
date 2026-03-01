@@ -1,14 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="card p-4 shadow">
-    <h2>About This Project</h2>
-    <p>This project demonstrates an end-to-end DevOps pipeline using:</p>
+
+<h2 class="text-white mb-4">📌 Project Overview</h2>
+
+<div class="card p-4 shadow text-white">
+    <p>This project implements a complete DevOps lifecycle:</p>
+
     <ul>
-        <li>GitHub</li>
-        <li>Jenkins</li>
-        <li>Docker</li>
-        <li>AWS EC2</li>
-        <li>Prometheus & Grafana</li>
+        <li>Source Code Management using GitHub</li>
+        <li>Automated CI/CD with Jenkins</li>
+        <li>Containerization using Docker</li>
+        <li>Deployment on AWS EC2</li>
+        <li>Monitoring with Prometheus & Grafana</li>
+        <li>Automated Backup using Cron Jobs</li>
+    </ul>
+
+    <h4 class="mt-4">🔄 Pipeline Flow</h4>
+    <p>Developer → GitHub → Jenkins → Docker Hub → AWS EC2 → Monitoring</p>
+
+    <h4 class="mt-4">🎯 Key Learnings</h4>
+    <ul>
+        <li>Infrastructure Automation</li>
+        <li>Container Orchestration Basics</li>
+        <li>Monitoring & Observability</li>
+        <li>Cloud Deployment Strategies</li>
     </ul>
 </div>
+
 {% endblock %}
