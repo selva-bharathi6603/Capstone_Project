@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card p-4 shadow">
+    <h2>📊 Live Server Monitoring</h2>
+    <p><strong>CPU Usage:</strong> {{ cpu }}%</p>
+    <p><strong>Memory Usage:</strong> {{ memory }}%</p>
+    <p>This data is fetched directly from the running Docker container.</p>
+</div>
+{% endblock %}
