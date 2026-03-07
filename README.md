@@ -1,6 +1,6 @@
 # DevOps Capstone Project – End-to-End CI/CD Pipeline
 
-## Project Title
+## Project Title:
 
 **End-to-End DevOps CI/CD Pipeline with Monitoring and Backup Automation**
 
