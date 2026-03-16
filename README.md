@@ -48,13 +48,13 @@ cd capestone-project
 ## 2 Build Docker Image
 
 ```bash
-docker build -t webapp .
+docker build -t capstone-project .
 ```
 
 ## 3 Run Docker Container
 
 ```bash
-docker run -d -p 5000:5000 webapp
+docker run -d -p 5000:5000 capstone
 ```
 
 ## 4 Access the Application
